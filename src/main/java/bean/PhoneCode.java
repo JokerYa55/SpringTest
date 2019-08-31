@@ -5,12 +5,17 @@
  */
 package bean;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author vasil
  */
+@Entity
 public class PhoneCode {
-
+    
+    @Id
     private String id;
     private String name;
 
