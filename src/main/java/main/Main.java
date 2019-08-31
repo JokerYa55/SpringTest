@@ -8,6 +8,7 @@ package main;
 import org.jboss.logging.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
+@ComponentScan(basePackages = {"cache", "dao", "rest"})
 public class Main {
 
     private static final Logger LOG = Logger.getLogger(Main.class);

@@ -5,6 +5,7 @@
  */
 package main;
 
+import dao.LoadDao;
 import java.io.IOException;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
