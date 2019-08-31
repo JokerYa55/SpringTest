@@ -23,7 +23,7 @@ public class ShedulerTask {
     @Autowired
     LoadDao loadDao;
     
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(cron="0 0 2 * * *", zone="Europe/Moscow")
     private void uploadData() throws IOException{
         LOG.info("uploadData");
         loadDao.upload();
