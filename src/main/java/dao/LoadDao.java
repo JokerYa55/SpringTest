@@ -24,6 +24,9 @@ public class LoadDao {
     @Autowired
     private AppCache cache;
 
+    @Autowired
+    private CountryRepository countryDao;
+    
     private static final Object LOCK = new Object();
 
     private static final String URL_COUNTRY = "http://country.io/names.json";
