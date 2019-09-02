@@ -5,6 +5,12 @@
  */
 package dao;
 
+import bean.Country;
+import java.util.Optional;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,5 +19,19 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class CountryDao {
+
+    private static final Logger LOG = Logger.getLogger(CountryDao.class.getName());
+    private EntityManager em;
+    @Autowired
+    private dbDatabase db;
+
     
+    public CountryDao() {
+        em = db.getEM();
+    }
+
+    public Country findById(String id) {
+        return em.find(Country.class, id);
+    }
+
 }
