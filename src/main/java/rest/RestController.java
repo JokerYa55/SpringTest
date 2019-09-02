@@ -7,7 +7,9 @@ package rest;
 
 import dao.LoadDao;
 import cache.AppCache;
+import dao.CountryRepositoryCrudInterface;
 import java.io.IOException;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +27,21 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping(path = "/api")
 public class RestController {
 
+    private static final Logger LOG = Logger.getLogger(RestController.class.getName());
+
+    
     @Autowired
     AppCache cache;
 
     @Autowired
     LoadDao loadDao;
+    
+    @Autowired
+    CountryRepositoryCrudInterface countryDao;
 
     @GetMapping(path = "/test", produces = "application/json")
     public String getEmployees() {
+        LOG.info("country DAO = " + countryDao);
         cache.getCache().put("test", "99");
         return "test + " + cache.getCache().get("test");
     }

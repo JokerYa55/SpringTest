@@ -23,9 +23,6 @@ public class LoadDao {
 
     @Autowired
     private AppCache cache;
-
-    @Autowired
-    private CountryRepository countryDao;
     
     private static final Object LOCK = new Object();
 
