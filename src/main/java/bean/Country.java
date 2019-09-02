@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package bean;
+import java.io.Serializable;
 import javax.persistence.*;
 /**
  *
  * @author vasil
  */
 @Entity
-public class Country {
+public class Country implements Serializable {
 
     @Id
     private String id;

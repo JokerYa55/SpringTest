@@ -7,7 +7,7 @@ package rest;
 
 import dao.LoadDao;
 import cache.AppCache;
-import dao.CountryRepositoryCrudInterface;
+import dao.CountryDao;
 import java.io.IOException;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class RestController {
     LoadDao loadDao;
     
     @Autowired
-    CountryRepositoryCrudInterface countryDao;
+    CountryDao countryDao;
 
     @GetMapping(path = "/test", produces = "application/json")
     public String getEmployees() {

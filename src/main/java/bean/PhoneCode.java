@@ -5,6 +5,7 @@
  */
 package bean;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,7 +14,7 @@ import javax.persistence.Id;
  * @author vasil
  */
 @Entity
-public class PhoneCode {
+public class PhoneCode implements Serializable {
     
     @Id
     private String id;
