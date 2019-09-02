@@ -6,11 +6,9 @@
 package dao;
 
 import bean.Country;
-import java.util.Optional;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -21,7 +19,7 @@ import org.springframework.stereotype.Repository;
 public class CountryDao {
 
     private static final Logger LOG = Logger.getLogger(CountryDao.class.getName());
-    private EntityManager em;
+    //private EntityManager em;
     @Autowired
     private dbDatabase db;
 
@@ -30,8 +28,22 @@ public class CountryDao {
     }
 
     public Country findById(String id) {
-        em = db.getEM();
+        EntityManager em = db.getEM();
         return em.find(Country.class, id);
+    }
+
+    public void addItem(Country item) {
+        EntityManager em = null;
+        try {
+            em = db.getEM();
+            em.getTransaction().begin();
+            em.merge(item);
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 
 }
