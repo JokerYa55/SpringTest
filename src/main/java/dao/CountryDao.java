@@ -25,12 +25,12 @@ public class CountryDao {
     @Autowired
     private dbDatabase db;
 
-    
     public CountryDao() {
-        em = db.getEM();
+        LOG.info("CountryDao = ");
     }
 
     public Country findById(String id) {
+        em = db.getEM();
         return em.find(Country.class, id);
     }
 
