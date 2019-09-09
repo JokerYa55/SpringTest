@@ -20,8 +20,8 @@ public class CountryDao {
 
     private static final Logger LOG = Logger.getLogger(CountryDao.class.getName());
     //private EntityManager em;
-    @Autowired
-    private DbDatabase db;
+    //@Autowired
+    private DbDatabase_1 db;
 
     public CountryDao() {
         LOG.info("CountryDao = ");

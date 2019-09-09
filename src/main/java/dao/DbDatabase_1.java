@@ -16,12 +16,12 @@ import org.springframework.stereotype.Repository;
  * @author vasil
  */
 @Repository
-public class DbDatabase {
+public class DbDatabase_1 {
 
     private final EntityManagerFactory emf;
-    private static final Logger LOG = Logger.getLogger(DbDatabase.class.getName());
+    private static final Logger LOG = Logger.getLogger(DbDatabase_1.class.getName());
 
-    public DbDatabase() {
+    public DbDatabase_1() {
         emf = Persistence.createEntityManagerFactory("db_JPA");
     }
 
